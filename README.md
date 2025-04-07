@@ -210,6 +210,59 @@ API 设计：Taro 组件库的 API 需要与 Taro 的 API 保持一致，而普�
 第6步：持续改进​  
 ​​定期复盘  
 ​​灵活调整  
+
+# 12、前端在性能优化方面能做的大部分工作有哪些？
+（一）构建优化：   
+构建工具 ：选择 Vite / Rollup / ESBuild / SWC  
+构建缓存 ：Babel / Webpack / Vite 缓存  
+并发加速 ：多线程构建、使用轻量打包器  
+Tree shaking	：使用 ESModule、避免 CommonJS  
+按需加载	：路由懒加载、组件库按需引入  
+压缩	：JS/CSS/HTML/图片压缩  
+分包	：manualChunks、动态 import  
+polyfill	：按需注入  
+构建分析	：使用分析插件找“大块头”  
+资源加载	：gzip/brotli、CDN 外链、大库剥离  
+去除调试	：console/debugger 清除  
+自动发版	：changelog、tag、CI 发布  
+多环境注入	：env 配置清晰隔离  
+
+（二）加载优化：  
+Tree shaking	：ESModule / vite
+路由懒加载	：import()
+图片懒加载	：loading="lazy" / IO
+字体子集	：iconfont / subset
+CDN 加速	：静态资源分发
+Preload ：关键资源	<link rel="preload">
+Gzip/Brotli	：服务端压缩
+Cache-Control ：配置	max-age, etag
+Critical ：CSS	inline 样式
+Skeleton ：Screen	首屏骨架
+第三方脚本 ：defer/async	<script async src="...">  
+
+（三）渲染优化：  
+节点数量控制	：避免一次性渲染大数据（虚拟列表）  
+DOM 操作合并	：尽量批量修改样式 / 结构  
+样式隔离	：避免复杂层级 CSS 影响布局性能  
+v-if vs v-show	：动态切换优选 v-show  
+页面缓存	：使用 keep-alive 保持页面状态  
+渐进渲染	：Tab 页、长列表分页加载  
+骨架屏	：首屏骨架优化感知  
+GPU 动画	：用 transform / opacity  
+Worker ：异步任务	减少主线程阻塞  
+diff 优化	：提供合理的 key、避免深层嵌套对象  
+
+（四）资源优化    
+JS/CSS 压缩	：Terser, cssnano	构建阶段压缩  
+图片压缩	：TinyPNG, image-webpack-loader	支持 WebP  
+第三方库优化	：按需引入 / CDN 引用	lodash-es / externals  
+缓存优化	：文件名 hash + Cache-Control	强缓存策略  
+CDN 加速	：JS/CSS/图片分发	阿里云 CDN / Cloudflare  
+关键资源 ：preload	<link rel="preload">	提高首屏加载  
+非核心资源 ：defer/async	<script> 标签优化	避免阻塞  
+字体优化	：字体子集、woff2	减少字体体积  
+
+
    
   
 
