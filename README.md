@@ -262,7 +262,38 @@ CDN 加速	：JS/CSS/图片分发	阿里云 CDN / Cloudflare
 非核心资源 ：defer/async	<script> 标签优化	避免阻塞  
 字体优化	：字体子集、woff2	减少字体体积  
 
+# 13、Koa核心
+```javacript
+class MyKoa {
+  constructor() {
+    this.middlewares = []
+  }
+  use(fn) {
+    this.middlewares.push(fn)
+  }
+  listen(port) {
+    const server = require('http').createServer(async (req, res) => {
+      const ctx = { req, res }
+      const fn = compose(this.middlewares)
+      await fn(ctx)
+      res.end(ctx.body)
+    })
+    server.listen(port)
+  }
+}
 
+function compose(middlewares) {
+  return function (ctx) {
+    function dispatch(i) {
+      const fn = middlewares[i]
+      if (!fn) return Promise.resolve()
+      return Promise.resolve(fn(ctx, () => dispatch(i + 1)))
+    }
+    return dispatch(0)
+  }
+}
+
+```
    
   
 
