@@ -294,8 +294,21 @@ function compose(middlewares) {
 }
 
 ```
-   
-  
+
+# 14、使用 Nginx 进行负载均衡
+轮询（默认）：请求按顺序分配到每个后端服务器。  
+最少连接：请求分配到当前连接最少的服务器。  
+IP 哈希：基于客户端的 IP 地址将请求定向到同一个后端服务器，适用于会话保持。  
+
+# 15、优化 Nginx 的性能
+增加 worker 进程数：根据 CPU 核数调整 worker_processes 的值。  
+调整 worker_connections：根据服务器的硬件条件，增加 worker_connections 数量。  
+开启 Gzip 压缩：压缩响应内容，减小传输数据量。  
+使用缓存：启用缓存机制，减少后端请求次数。  
+使用 HTTP/2：开启 HTTP/2 支持，提高多并发请求的性能。  
+
+# 16、
+
 
 
 
