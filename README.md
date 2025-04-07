@@ -264,7 +264,7 @@ CDN 加速	：JS/CSS/图片分发	阿里云 CDN / Cloudflare
 
 # 13、Koa核心
 ```javacript
-class MyKoa {
+class Koa {
   constructor() {
     this.middlewares = []
   }
