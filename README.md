@@ -228,17 +228,17 @@ polyfill	：按需注入
 多环境注入	：env 配置清晰隔离  
 
 （二）加载优化：  
-Tree shaking	：ESModule / vite
-路由懒加载	：import()
-图片懒加载	：loading="lazy" / IO
-字体子集	：iconfont / subset
-CDN 加速	：静态资源分发
-Preload ：关键资源	<link rel="preload">
-Gzip/Brotli	：服务端压缩
-Cache-Control ：配置	max-age, etag
-Critical ：CSS	inline 样式
-Skeleton ：Screen	首屏骨架
-第三方脚本 ：defer/async	<script async src="...">  
+Tree shaking	：ESModule / vite  
+路由懒加载	：import()  
+图片懒加载	：loading="lazy" / IO  
+字体子集	：iconfont / subset  
+CDN 加速	：静态资源分发  
+Preload ：关键资源	<link rel="preload">  
+Gzip/Brotli	：服务端压缩  
+Cache-Control ：配置	max-age, etag  
+Critical ：CSS	inline 样式  
+Skeleton ：Screen	首屏骨架  
+第三方脚本 ：defer/async	<script async src="...">    
 
 （三）渲染优化：  
 节点数量控制	：避免一次性渲染大数据（虚拟列表）  
